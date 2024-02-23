@@ -1,0 +1,6 @@
+mutation AddMovie($movie : AddMovieDetailsInput!)
+{
+  addMovie(detail: $movie) {
+    id
+  }
+}

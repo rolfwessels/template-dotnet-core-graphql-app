@@ -3,7 +3,7 @@ services:
   app:
     build:
       context: ./
-      dockerfile: ./TemplateDotnetCoreConsoleApp.Cmd/Dockerfile
+      dockerfile: ./TemplateDotnetCoreConsoleApp.Api/Dockerfile
     environment:
       - ASPNETCORE_ENVIRONMENT=test-local
     ports:

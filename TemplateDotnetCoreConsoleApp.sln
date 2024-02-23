@@ -1,10 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Cmd", "src\TemplateDotnetCoreConsoleApp.Cmd\TemplateDotnetCoreConsoleApp.Cmd.csproj", "{AB01FD70-7F65-4F9F-987B-9C0AE5BC0836}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Libs", "Libs", "{47C1EF69-6BFB-423E-95D5-16182A85D1C5}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6090C50D-DA7D-46B1-9F83-527232192392}"
@@ -19,7 +16,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Cmd.Tests", "tests\TemplateDotnetCoreConsoleApp.Cmd.Tests\TemplateDotnetCoreConsoleApp.Cmd.Tests.csproj", "{33F9678D-B834-43C0-927C-679764197515}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Api", "src\TemplateDotnetCoreConsoleApp.Api\TemplateDotnetCoreConsoleApp.Api.csproj", "{2D2ECFEA-11F8-49F1-B692-DA99DD69BBF6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Core", "src\TemplateDotnetCoreConsoleApp.Core\TemplateDotnetCoreConsoleApp.Core.csproj", "{1ED29348-8BD4-4F26-885F-CF950A4CDBE4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Client", "src\TemplateDotnetCoreConsoleApp.Client\TemplateDotnetCoreConsoleApp.Client.csproj", "{66A390A3-396F-4DBB-959D-92A63A3EA9C1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Api.Tests", "tests\TemplateDotnetCoreConsoleApp.Api.Tests\TemplateDotnetCoreConsoleApp.Api.Tests.csproj", "{3D533F02-2C9C-40BA-B1CD-88778326D511}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateDotnetCoreConsoleApp.Core.Tests", "tests\TemplateDotnetCoreConsoleApp.Core.Tests\TemplateDotnetCoreConsoleApp.Core.Tests.csproj", "{2DA19E8C-9942-4FD4-B77E-56CABCB21C38}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,20 +32,35 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{AB01FD70-7F65-4F9F-987B-9C0AE5BC0836}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AB01FD70-7F65-4F9F-987B-9C0AE5BC0836}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AB01FD70-7F65-4F9F-987B-9C0AE5BC0836}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AB01FD70-7F65-4F9F-987B-9C0AE5BC0836}.Release|Any CPU.Build.0 = Release|Any CPU
-		{33F9678D-B834-43C0-927C-679764197515}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{33F9678D-B834-43C0-927C-679764197515}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{33F9678D-B834-43C0-927C-679764197515}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{33F9678D-B834-43C0-927C-679764197515}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D2ECFEA-11F8-49F1-B692-DA99DD69BBF6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2ECFEA-11F8-49F1-B692-DA99DD69BBF6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2ECFEA-11F8-49F1-B692-DA99DD69BBF6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2ECFEA-11F8-49F1-B692-DA99DD69BBF6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ED29348-8BD4-4F26-885F-CF950A4CDBE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ED29348-8BD4-4F26-885F-CF950A4CDBE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ED29348-8BD4-4F26-885F-CF950A4CDBE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ED29348-8BD4-4F26-885F-CF950A4CDBE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A390A3-396F-4DBB-959D-92A63A3EA9C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A390A3-396F-4DBB-959D-92A63A3EA9C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A390A3-396F-4DBB-959D-92A63A3EA9C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A390A3-396F-4DBB-959D-92A63A3EA9C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D533F02-2C9C-40BA-B1CD-88778326D511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D533F02-2C9C-40BA-B1CD-88778326D511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D533F02-2C9C-40BA-B1CD-88778326D511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D533F02-2C9C-40BA-B1CD-88778326D511}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2DA19E8C-9942-4FD4-B77E-56CABCB21C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2DA19E8C-9942-4FD4-B77E-56CABCB21C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2DA19E8C-9942-4FD4-B77E-56CABCB21C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2DA19E8C-9942-4FD4-B77E-56CABCB21C38}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{33F9678D-B834-43C0-927C-679764197515} = {6090C50D-DA7D-46B1-9F83-527232192392}
+		{1ED29348-8BD4-4F26-885F-CF950A4CDBE4} = {47C1EF69-6BFB-423E-95D5-16182A85D1C5}
+		{66A390A3-396F-4DBB-959D-92A63A3EA9C1} = {47C1EF69-6BFB-423E-95D5-16182A85D1C5}
+		{3D533F02-2C9C-40BA-B1CD-88778326D511} = {6090C50D-DA7D-46B1-9F83-527232192392}
+		{2DA19E8C-9942-4FD4-B77E-56CABCB21C38} = {6090C50D-DA7D-46B1-9F83-527232192392}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B7A59F0F-82B6-4C18-9AC9-0062131712F4}

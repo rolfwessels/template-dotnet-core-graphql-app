@@ -1,0 +1,12 @@
+query AllMovies {
+  movies {
+    id
+    title
+    actorIds
+    actors {
+      id
+      firstName
+      lastName
+    }
+  }
+}
