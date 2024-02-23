@@ -13,7 +13,6 @@ public class SubscriptionTests : BaseApiTests
 {
   [Test]
   [Category("Integration")]
-  [Explicit("For now we need this as explicit because the test does not close on github-actions")]
   public async Task Movies_GivenClient_ShouldReturnMovies()
   {
     // arrange

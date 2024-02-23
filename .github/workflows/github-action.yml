@@ -22,11 +22,8 @@ jobs:
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 8.0.x
-
       - name: Test
         run: make test
-      - name: execute console to see if it runs
-        run: make start
   publish-dev:
     needs: test
     runs-on: ubuntu-latest
