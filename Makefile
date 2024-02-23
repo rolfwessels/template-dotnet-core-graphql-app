@@ -97,10 +97,21 @@ version:
 	@echo -e "Setting version number ${GREEN}v${version}${NC} "
 	@echo '{ "version": "${version}" }' > src/version.json
 
+update-client:
+	@echo "🚀 Starting 'make start' in background..."
+	@make start & \
+	MAKE_PID=$$!; \
+	echo "Background process ID: $$MAKE_PID"; \
+	sleep 2; \
+	echo "Running 'dotnet graphql update'..."; \
+	cd src/TemplateDotnetCoreConsoleApp.Client && dotnet graphql update; \
+	echo "🛑 Killing 'make start' with PID $$MAKE_PID..."; \
+	kill $$MAKE_PID; \
+	echo "✅ Done!"
 
 start: 
 	@echo -e "Starting the $(release) release of $(project)"
-	@cd src/TemplateDotnetCoreConsoleApp.Cmd; dotnet run -- --help
+	@cd src/TemplateDotnetCoreConsoleApp.Api; dotnet run -- --help
 
 test: 
 	@echo -e "Testing ${GREEN}v${version}${NC}"
@@ -114,22 +125,22 @@ test:
 publish: 
 	@echo -e "Building the ${GREEN}v${version}${NC}-$(release) release of $(project)"
 		
-	@dotnet publish src/TemplateDotnetCoreConsoleApp.Cmd/TemplateDotnetCoreConsoleApp.Cmd.csproj -r linux-x64 -c $(release) \
+	@dotnet publish src/TemplateDotnetCoreConsoleApp.Api/TemplateDotnetCoreConsoleApp.Api.csproj -r linux-x64 -c $(release) \
 		-p:DebugType=None \
 		-p:DebugSymbols=false \
-		-p:PublishSingleFile=true \
-		-p:PublishTrimmed=true  \
-		-p:SelfContained=true \
+		-p:PublishSingleFile=false \
+		-p:PublishTrimmed=false  \
+		-p:SelfContained=false \
 		-p:VersionSuffix=$(version-suffix) \
 		-p:FileVersion=$(version) \
 		-p:VersionPrefix=$(version) \
 	--output ./dist/$(release)/linux-x64 
-	@dotnet publish src/TemplateDotnetCoreConsoleApp.Cmd/TemplateDotnetCoreConsoleApp.Cmd.csproj -r win-x64 -c $(release) \
+	@dotnet publish src/TemplateDotnetCoreConsoleApp.Api/TemplateDotnetCoreConsoleApp.Api.csproj -r win-x64 -c $(release) \
 		-p:DebugType=None \
 		-p:DebugSymbols=false \
-		-p:PublishSingleFile=true \
-		-p:PublishTrimmed=true  \
-		-p:SelfContained=true \
+		-p:PublishSingleFile=false \
+		-p:PublishTrimmed=false  \
+		-p:SelfContained=false \
 		-p:VersionSuffix=$(version-suffix) \
 		-p:FileVersion=$(version) \
 		-p:VersionPrefix=$(version) \
@@ -145,7 +156,7 @@ docker-login:
 
 docker-build:
 	@echo -e "Building branch ${RED}$(current-branch)${NC} to ${GREEN}$(docker-tags)${NC} with ${GREEN}$(version-full)${NC}"
-	@cd src && docker build -f TemplateDotnetCoreConsoleApp.Cmd/Dockerfile --build-arg VERSION=$(version) --build-arg VERSION_SUFFIX=$(version-suffix) ${docker-tags} .
+	@cd src && docker build -f TemplateDotnetCoreConsoleApp.Api/Dockerfile --build-arg VERSION=$(version) --build-arg VERSION_SUFFIX=$(version-suffix) ${docker-tags} .
 
 docker-push:
 	@echo -e "Pushing to ${GREEN}$(docker-tags)${NC}"

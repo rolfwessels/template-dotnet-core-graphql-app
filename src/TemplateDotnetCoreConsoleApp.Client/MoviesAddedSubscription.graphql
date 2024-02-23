@@ -1,0 +1,12 @@
+subscription MoviesAddedSubscription {
+  movieAdded {
+    id
+    title
+    actorIds
+    actors {
+      id
+      firstName
+      lastName
+    }
+  }
+}

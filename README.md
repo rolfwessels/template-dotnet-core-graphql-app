@@ -89,6 +89,14 @@ dotnet sln TemplateDotnetCoreConsoleApp.sln add ./tests/TemplateDotnetCoreConsol
 dotnet sln TemplateDotnetCoreConsoleApp.sln list
 ```
 
+### Update the graphql client
+
+We use [StrawberryShake](https://chillicream.com/docs/strawberryshake/v13/get-started/console) to build our client library. To update the library please run the following
+
+```
+make update-client
+```
+
 ### 🔄 Versioning
 
 Semantic Versioning (SemVer) is a versioning scheme for software that conveys meaning about the underlying changes. It's composed of three segments:

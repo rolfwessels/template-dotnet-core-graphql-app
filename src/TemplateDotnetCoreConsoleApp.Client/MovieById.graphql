@@ -1,0 +1,12 @@
+query MovieById($id: Int!) {
+  movieById(id: $id) {
+    id
+    title
+    actorIds
+    actors {
+      id
+      firstName
+      lastName
+    }
+  }
+}

@@ -1,0 +1,36 @@
+schema {
+  query: Query
+  mutation: Mutation
+  subscription: Subscription
+}
+
+type Query {
+  movies: [Movie!]!
+  movieById(id: Int!): Movie
+}
+
+type Mutation {
+  addMovie(detail: AddMovieDetailsInput!): Movie!
+}
+
+type Subscription {
+  movieAdded: Movie!
+}
+
+type Actor {
+  id: Int!
+  firstName: String!
+  lastName: String!
+}
+
+input AddMovieDetailsInput {
+  title: String!
+  actorIds: [Int!]!
+}
+
+type Movie {
+  id: Int!
+  title: String!
+  actorIds: [Int!]!
+  actors: [Actor!]!
+}
