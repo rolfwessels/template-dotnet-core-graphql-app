@@ -24,7 +24,7 @@ services:
       - /template-dotnet-core-console-app/tests/TemplateDotnetCoreConsoleApp.Api.Tests/obj
       - /template-dotnet-core-console-app/tests/TemplateDotnetCoreConsoleApp.Core.Tests/obj
     environment:
-      - ASPNETCORE_ENVIRONMENT=development
+      - ASPNETCORE_ENVIRONMENT=local
       - HISTFILE=/cache/.bash_history
     entrypoint: top -b
     logging:
