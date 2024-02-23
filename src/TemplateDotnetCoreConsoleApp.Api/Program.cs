@@ -1,4 +1,3 @@
-using TemplateDotnetCoreConsoleApp.Api;
 using TemplateDotnetCoreConsoleApp.Core;
 using Serilog;
 using Serilog.Events;
