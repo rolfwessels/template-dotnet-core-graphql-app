@@ -24,6 +24,8 @@ jobs:
           dotnet-version: 8.0.x
       - name: Test
         run: make test
+      - name: Audit dependencies for known vulnerabilities
+        run: dotnet restore TemplateDotnetCoreConsoleApp.sln --force-evaluate -p:AuditPipeline=true
   publish-dev:
     needs: test
     runs-on: ubuntu-latest
