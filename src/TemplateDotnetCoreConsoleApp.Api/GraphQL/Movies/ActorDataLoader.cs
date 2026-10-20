@@ -6,8 +6,8 @@ public class ActorDataLoader : BatchDataLoader<int, Actor>
 {
   private readonly MovieStore _movieStore;
 
-  public ActorDataLoader(IBatchScheduler batchScheduler, MovieStore movieStore)
-    : base(batchScheduler)
+  public ActorDataLoader(IBatchScheduler batchScheduler, MovieStore movieStore, DataLoaderOptions options)
+    : base(batchScheduler, options)
   {
     _movieStore = movieStore;
   }

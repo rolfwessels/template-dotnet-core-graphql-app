@@ -3,10 +3,11 @@
   "isRoot": true,
   "tools": {
     "strawberryshake.tools": {
-      "version": "13.9.17",
+      "version": "16.6.9",
       "commands": [
         "dotnet-graphql"
-      ]
+      ],
+      "rollForward": false
     }
   }
 }

@@ -22,7 +22,7 @@ internal static class GraphQlSetupHelper
         return error.Exception switch
         {
           ValidationException c => error.WithMessage(c.Message).WithCode("Validation"),
-          KeyNotFoundException c => error.WithMessage(c.Message).WithCode("KeyNotFound"),
+          System.Collections.Generic.KeyNotFoundException c => error.WithMessage(c.Message).WithCode("KeyNotFound"),
           _ => error
         };
       });
