@@ -2,7 +2,7 @@ using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using TemplateDotnetCoreConsoleApp.Api.Tests.GraphQL;
-using FluentAssertions;
+using AwesomeAssertions;
 using NUnit.Framework;
 
 namespace TemplateDotnetCoreConsoleApp.Api.Tests.Controllers;

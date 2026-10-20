@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 using TemplateDotnetCoreConsoleApp.Client;
-using FluentAssertions;
+using AwesomeAssertions;
 using Microsoft.Extensions.DependencyInjection;
 using NUnit.Framework;
 

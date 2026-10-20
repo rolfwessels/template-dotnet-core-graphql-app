@@ -15,7 +15,7 @@ This makes template dotnet core console app happen
 * [Serilog](https://serilog.net/) for logging and all the extensibility including plugins to push to [loki](https://grafana.com/oss/loki/)
 * [Spectre.Console](https://spectreconsole.net/) for amazing interactive console applications.
 * [NUnit](https://nunit.org/) for unit tests
-* [FluentAssertions](https://fluentassertions.com/) for readable assertions
+* [AwesomeAssertions](https://github.com/AwesomeAssertions/AwesomeAssertions) for readable assertions
 * [Docker](https://www.docker.com/)  for easy deployment and setting up of developer environment
 * [MakeFile](https://opensource.com/article/18/8/what-how-makefile)  because it just works!
 
