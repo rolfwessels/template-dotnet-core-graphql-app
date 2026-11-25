@@ -45,6 +45,8 @@ ifeq ("$(wildcard $(docker-file-check))","")
 endif
 
 # Targets
+.PHONY: scan verify
+
 help:
 	@echo "The following commands can be used for building & running & deploying the the $(project) container"
 	@echo "---------------------------------------------------------------------------------------------"
@@ -58,6 +60,8 @@ help:
 	@echo "   - version               : Set current version number $(project)"
 	@echo "   - start                 : Run the $(project)"
 	@echo "   - test                  : Test the $(project)"
+	@echo "   - scan                  : Audit dependencies for known vulnerabilities"
+	@echo "   - verify                : Run tests and the dependency audit"
 	@echo "   - publish               : Publish the $(project)"
 	@echo "   - docker-login          : Login to docker registry"
 	@echo "   - docker-build          : Build the docker image"
@@ -122,6 +126,12 @@ test:
 		 /p:Exclude="[*.Tests]*" \
 		 /p:CoverletOutputFormat="lcov"
 
+scan:
+	@dotnet restore TemplateDotnetCoreConsoleApp.sln --force-evaluate -p:AuditPipeline=true
+
+verify: test
+	@$(MAKE) scan
+
 publish: 
 	@echo -e "Building the ${GREEN}v${version}${NC}-$(release) release of $(project)"
 		
@@ -156,7 +166,7 @@ docker-login:
 
 docker-build:
 	@echo -e "Building branch ${RED}$(current-branch)${NC} to ${GREEN}$(docker-tags)${NC} with ${GREEN}$(version-full)${NC}"
-	@cd src && docker build -f TemplateDotnetCoreConsoleApp.Api/Dockerfile --build-arg VERSION=$(version) --build-arg VERSION_SUFFIX=$(version-suffix) ${docker-tags} .
+	@docker build --target runtime --build-arg VERSION=$(version) ${docker-tags} .
 
 docker-push:
 	@echo -e "Pushing to ${GREEN}$(docker-tags)${NC}"
