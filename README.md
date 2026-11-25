@@ -37,6 +37,8 @@ The dev shell shows a 🐳 prompt and saves Zsh history in a project volume acro
 | --- | --- |
 | `make start` | Start the API. |
 | `make test` | Run the API and core tests with coverage. |
+| `make scan` | Audit direct and transitive NuGet dependencies. |
+| `make verify` | Run tests and the dependency audit. |
 | `make update-client` | Refresh the Strawberry Shake schema. |
 | `make build up` | Build the development container and open its shell. |
 | `make down` | Stop the development container from the host. |

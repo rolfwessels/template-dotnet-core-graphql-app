@@ -45,6 +45,8 @@ ifeq ("$(wildcard $(docker-file-check))","")
 endif
 
 # Targets
+.PHONY: scan verify
+
 help:
 	@echo "The following commands can be used for building & running & deploying the the $(project) container"
 	@echo "---------------------------------------------------------------------------------------------"
@@ -58,6 +60,8 @@ help:
 	@echo "   - version               : Set current version number $(project)"
 	@echo "   - start                 : Run the $(project)"
 	@echo "   - test                  : Test the $(project)"
+	@echo "   - scan                  : Audit dependencies for known vulnerabilities"
+	@echo "   - verify                : Run tests and the dependency audit"
 	@echo "   - publish               : Publish the $(project)"
 	@echo "   - docker-login          : Login to docker registry"
 	@echo "   - docker-build          : Build the docker image"
@@ -121,6 +125,12 @@ test:
 		 /p:MergeWith=../TestResults/coverlet.info \
 		 /p:Exclude="[*.Tests]*" \
 		 /p:CoverletOutputFormat="lcov"
+
+scan:
+	@dotnet restore TemplateDotnetCoreConsoleApp.sln --force-evaluate -p:AuditPipeline=true
+
+verify: test
+	@$(MAKE) scan
 
 publish: 
 	@echo -e "Building the ${GREEN}v${version}${NC}-$(release) release of $(project)"
