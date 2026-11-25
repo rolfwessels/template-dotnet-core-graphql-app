@@ -5,6 +5,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
+      target: dev
     volumes:
       - ".:/template-dotnet-core-console-app"
       - "./.aws:/root/.aws"
@@ -25,7 +26,7 @@ services:
       - /template-dotnet-core-console-app/tests/TemplateDotnetCoreConsoleApp.Core.Tests/obj
     environment:
       - ASPNETCORE_ENVIRONMENT=local
-      - HISTFILE=/cache/.bash_history
+      - HISTFILE=/cache/.zsh_history
     entrypoint: top -b
     logging:
       driver: none

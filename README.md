@@ -29,6 +29,8 @@ The response contains two movies under `data.movies`, including **The Rise of th
 
 For Docker development, run `make build up` on the host, then `make start` in the development shell. Run the query from a second shell in the same container with `docker compose exec dev zsh` because the development container keeps port 5085 internal.
 
+The dev shell shows a 🐳 prompt and saves Zsh history in a project volume across `make down` and rebuilds.
+
 ## 📋 Make commands
 
 | Command | Purpose |
@@ -50,7 +52,7 @@ Run `make help` for more targets.
 ## 📦 Releases and deployment
 
 - `make publish` writes framework-dependent Linux and Windows x64 builds under `dist/`.
-- `make docker-build` builds the API image. Use `make docker-publish` to build and push after configuring your registry.
+- The root `Dockerfile` contains both stages. `make build` builds the `dev` stage and `make docker-build` builds the `runtime` stage. Use `make docker-publish` to build and push after configuring your registry.
 - Set the major and minor version with `versionPrefix` in the Makefile. The patch comes from the Git commit count. `make version` writes the current version to `src/version.json`.
 - Create release tags such as `v1.2.0` on `main`. For an urgent fix to an older release, branch from its tag and merge the fix back into `main`.
 
