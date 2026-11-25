@@ -121,11 +121,7 @@ make version
 
 Our project adheres to a modified version of the [Git Flow](https://nvie.com/posts/a-successful-git-branching-model/) workflow, tailored to streamline our release process.
 
-### Feature/Bug Branches
-
-- **Creation**: Developers create feature branches off the `main` branch for new features or bug fixes.
-- **Naming Convention**: Feature branches are named with the prefix `feature/` followed by a descriptive name (e.g., `feature/add-login`).
-- **Bug fixes**: Branches are named with the prefix `bug/` followed by a descriptive name (e.g., `bug/fix-login-button`).
+See [AGENTS.md](AGENTS.md) for branch naming, pull requests, and verification.
 
 ### Main Branch
 
